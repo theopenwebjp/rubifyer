@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script type="module" src="index.js"></script>
+        <script type="module">
+            import {setup, rubifyPage} from './index.js'
+            setup().then(() => {
+                rubifyPage()
+            })
+        </script>
+    </head>
+    <body>
+        <h1>Rubifyer example page</h1>
+        <div>
+            All known Japanese words should be updated with ruby here.
+        </div>
+        <div>
+            <span>Normal</span>
+            <span>完璧</span>
+            <span>before完璧after</span>
+        </div>
+    </body>
+</html>
