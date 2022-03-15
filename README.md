@@ -5,6 +5,10 @@ Goal is to simply get mapped ruby characters from API and display for words in c
 
 ## Usage
 
+```bash
+npm install @theopenweb/rubifyer
+```
+
 ```js
 import Rubifyer from './index.js'
 
