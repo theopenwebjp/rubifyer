@@ -1,0 +1,18 @@
+{
+  "name": "rubifyer",
+  "version": "1.0.0",
+  "description": "Simple library for rubifying(Add ruby characters/tags) the page.\r Goal is to simply get mapped ruby characters from API and display for words in current page.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goldingdamien/rubifyer.git"
+  },
+  "keywords": ["ruby", "japanese", "ルビ", "ルビー", "送り仮名"],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goldingdamien/rubifyer/issues"
+  },
+  "homepage": "https://github.com/goldingdamien/rubifyer#readme"
+}

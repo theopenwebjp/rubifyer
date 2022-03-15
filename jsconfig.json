@@ -1,0 +1,16 @@
+{
+    "include": [
+        "index.js"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": true,
+        "noEmit": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "lib": ["ES2015", "DOM", "ES2016"]
+    }
+}

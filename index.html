@@ -1,23 +1,80 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <script type="module" src="index.js"></script>
         <script type="module">
-            import {setup, rubifyPage} from './index.js'
-            setup().then(() => {
-                rubifyPage()
-            })
+            import Rubifyer from './index.js'
+
+            function common(onLoad) {
+                const dictionary = document.querySelector('[name=dictionary]').value
+                const rubifyer = new Rubifyer({ dictionaries: [dictionary] })
+                rubifyer.awaitLoad().then(() => onLoad(rubifyer))
+            }
+
+            function rubifyPage() {
+                common((rubifyer) => {
+                    rubifyer.rubifyPage({ topElement: document.querySelector('#targets') })
+                })
+            }
+            function derubifyPage() {
+                common((rubifyer) => {
+                    rubifyer.derubifyPage({ topElement: document.querySelector('#targets') })
+                })
+            }
+
+            // Globals
+            window.rubifyPage = rubifyPage
+            window.derubifyPage = derubifyPage
         </script>
     </head>
     <body>
         <h1>Rubifyer example page</h1>
+
         <div>
-            All known Japanese words should be updated with ruby here.
+            <h2>Guide</h2>
+            <p>All known Japanese words should be updated with ruby here.</p>
+            <div>
+                <h3>Sample dictionary</h3>
+                <div style="background-color: #EEEEEE; display: inline-block; padding: 10px;">
+                    <pre>
+                        <code>
+{
+    "characters": [
+        {
+            "char": "完"
+        },
+        {
+            "char": "璧"
+        }
+    ],
+    "words": [
+        {
+            "str": "完璧",
+            "ruby": "カンペキ"
+        }
+    ]
+}
+                        </code>
+                    </pre>
+                </div>
+            </div>
         </div>
+
         <div>
-            <span>Normal</span>
-            <span>完璧</span>
-            <span>before完璧after</span>
+            <h2>Tools</h2>
+            <div>
+                <input type="url" name="dictionary" value="./dictionary.json">
+                <input type="button" value="Rubify Page" onclick="rubifyPage()">
+                <input type="button" value="De-Rubify Page" onclick="derubifyPage()">
+            </div>
+        </div>
+
+        <div>
+            <h2>Rubify Targets</h2>
+            <p id="targets">
+                <span>Normal</span>
+                <span>完璧</span>
+                <span>before完璧after</span>
+            </p>
         </div>
     </body>
 </html>
